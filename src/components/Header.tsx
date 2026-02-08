@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import logo from "../../public/futureLinkLogo.jpg";
+import { ModeToggle } from "./mode-toggle";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,29 +24,29 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { title: "Courses", path: "#courses" },
-    { title: "About", path: "#about" },
-    { title: "Contact", path: "#contact" },
+    { title: "Courses", path: "/courses" },
+    { title: "About", path: "/about" },
+    { title: "Contact", path: "/contact" },
   ];
 
   return (
     <>
       {/* Spacer to prevent content from jumping when header becomes fixed */}
       <div
-        className={`${isScrolled ? "h-14" : "h-20"} transition-all duration-500`}
+        className={`${isScrolled ? "h-18" : "h-24"} transition-all duration-500`}
       ></div>
 
       <nav
         className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ease-in-out ${
           isScrolled
-            ? "bg-linear-to-r from-blue-600 to-indigo-700 shadow-xl shadow-indigo-500/30"
-            : "bg-white shadow-lg"
+            ? "bg-linear-to-r from-blue-400 to-indigo-500 shadow-xl shadow-indigo-500/30"
+            : "bg-white/80 backdrop-blur-md shadow-lg dark:bg-slate-950/80 dark:shadow-slate-900/20"
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
             className={`flex items-center justify-between transition-all duration-500 ${
-              isScrolled ? "h-14" : "h-20"
+              isScrolled ? "h-18" : "h-24"
             }`}
           >
             {/* Logo Section - single element that transforms */}
@@ -65,10 +66,10 @@ const Header: React.FC = () => {
               />
               <p
                 className={`ml-3 font-bold whitespace-nowrap transition-all duration-500 ${
-                  isScrolled ? "text-lg text-white" : "text-xl text-indigo-700"
+                  isScrolled ? "text-lg text-white" : "text-xl text-indigo-700 dark:text-indigo-400"
                 }`}
               >
-                FutureLink
+                Future Link
               </p>
             </div>
 
@@ -86,7 +87,7 @@ const Header: React.FC = () => {
                     } ${
                       isScrolled
                         ? "text-white/90 hover:bg-white/20 hover:text-white"
-                        : "text-gray-700 hover:bg-indigo-50 hover:text-indigo-600"
+                        : "text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-indigo-900/50 dark:hover:text-indigo-300"
                     }`}
                     style={{
                       transitionDelay: isLoaded
@@ -98,7 +99,7 @@ const Header: React.FC = () => {
                   </Link>
                 ))}
 
-                {/* CTA Button */}
+                {/*  Button */}
                 <button
                   className={`ml-4 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-500 ease-out ${
                     isLoaded
@@ -107,7 +108,7 @@ const Header: React.FC = () => {
                   } ${
                     isScrolled
                       ? "bg-white text-indigo-600 shadow-lg hover:bg-gray-100"
-                      : "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30 hover:bg-indigo-700"
+                      : "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-500"
                   }`}
                   style={{
                     transitionDelay: isLoaded
@@ -117,6 +118,13 @@ const Header: React.FC = () => {
                 >
                   Get Started
                 </button>
+
+                {/* Dark/Light Mode Toggle */}
+                <ModeToggle
+                  isScrolled={isScrolled}
+                  isLoaded={isLoaded}
+                  animationDelay={isLoaded ? `${250 + navLinks.length * 100}ms` : "0ms"}
+                />
               </div>
             </div>
 
@@ -132,7 +140,7 @@ const Header: React.FC = () => {
                 className={`rounded-lg p-2 transition-colors duration-300 ${
                   isScrolled
                     ? "text-white hover:bg-white/20"
-                    : "text-gray-700 hover:bg-gray-100"
+                    : "text-gray-700 hover:bg-gray-100 dark:text-slate-300 dark:hover:bg-slate-800"
                 }`}
               >
                 <svg

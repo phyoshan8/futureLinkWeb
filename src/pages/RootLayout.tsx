@@ -42,7 +42,7 @@ const RootLayout = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors duration-300">
       <header>
         <Header />
       </header>
@@ -79,10 +79,10 @@ const RootLayout = () => {
         <section id="courses" className="py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl dark:text-white transition-colors duration-300">
                 Our Featured Courses
               </h2>
-              <p className="mx-auto max-w-2xl text-lg text-gray-600">
+              <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-slate-300 transition-colors duration-300">
                 Choose from our carefully curated selection of courses designed
                 to help you achieve your goals.
               </p>
