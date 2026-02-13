@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 import CoursesSection from "../components/CoursesSection";
 
-const heroImages = ["/activityEng.jpg", "/activityIT.jpg", "/fullStack.jpg"];
+const images = ["/activityEng.jpg", "/activityIT.jpg", "/fullStack.jpg"];
 
 const Home = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
+    //timer interval
     const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % heroImages.length);
+      setActiveSlide((prev) => (prev + 1) % images.length);
     }, 3000);
-
+    //setActiveSlides
     return () => clearInterval(interval);
-  }, [heroImages.length]);
-
+  }, []);
   return (
     <>
       {/* Hero Section */}
       <section className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
-          {heroImages.map((src, index) => (
+          {images.map((src, index) => (
             <div
               key={src}
               className={`absolute inset-0 bg-cover bg-center blur-sm transition-opacity duration-1000 ease-out ${

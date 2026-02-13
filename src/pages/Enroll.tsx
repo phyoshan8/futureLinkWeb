@@ -56,7 +56,7 @@ const Enroll = () => {
     };
 
     return (
-        <div className="h-[calc(100vh-64px)] flex items-center justify-center bg-gray-50 dark:bg-slate-950 px-4 font-montserrat overflow-hidden">
+        <div className="min-h-[calc(100vh-64px)] flex items-center justify-center bg-gray-50 dark:bg-slate-950 px-4 font-montserrat">
             <div className="w-full max-w-md bg-white dark:bg-slate-900 shadow-xl rounded-xl p-6 border border-gray-100 dark:border-slate-800 max-h-full overflow-y-auto">
                 <Link to="/" className="inline-flex items-center text-xs text-indigo-600 hover:text-indigo-500 mb-4 font-medium transition-colors">
                     <ArrowLeft className="w-3 h-3 mr-1" />

@@ -37,7 +37,15 @@ const MobileHeader: React.FC = () => {
     } else {
       document.body.style.overflow = "unset";
     }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, [isOpen]);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const navLinks: NavLink[] = [
     { 
