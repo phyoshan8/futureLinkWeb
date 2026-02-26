@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
-import logo from "../../../public/futureLinkLogo.jpg";
+import { futureLinkLogo as logo } from "@/images";
 import { ModeToggle } from "../mode-toggle";
 import MobileHeader from "./MobileHeader";
 
@@ -39,19 +39,19 @@ const Header: React.FC = () => {
 
       {/* Desktop Header */}
       <div className="hidden md:block">
-        {/* Spacer to prevent content from jumping when header becomes fixed */}
+        {/*prevent the content going under the header*/}
         <div
           className={`${isScrolled ? "h-18" : "h-24"} transition-all duration-500`}
         ></div>
 
         <nav
-          className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ease-in-out font-canela ${
+          className={`font-canela fixed top-0 right-0 left-0 z-50 transition-all duration-500 ease-in-out ${
             isScrolled
               ? "bg-linear-to-r from-blue-400 to-indigo-500 shadow-xl shadow-indigo-500/30"
               : "bg-white/80 shadow-lg backdrop-blur-md dark:bg-slate-950/80 dark:shadow-slate-900/20"
           }`}
         >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8">
             <div
               className={`flex items-center justify-between transition-all duration-500 ${
                 isScrolled ? "h-18" : "h-24"
@@ -69,13 +69,13 @@ const Header: React.FC = () => {
                 <img
                   src={logo}
                   alt="FutureLink Logo"
-                  className={`transition-all duration-500 rounded-full ${
+                  className={`rounded-full transition-all duration-500 ${
                     isScrolled ? "h-10 w-10" : "h-12 w-12"
                   }`}
                 />
-                <div className="flex flex-col items-end ml-3">
+                <div className="ml-3 flex flex-col items-end">
                   <p
-                    className={`font-playfair font-bold whitespace-nowrap transition-all duration-500 leading-none ${
+                    className={`typo-brand-title whitespace-nowrap transition-all duration-500 ${
                       isScrolled
                         ? "text-xl text-white"
                         : "text-2xl text-indigo-700 dark:text-indigo-400"
@@ -83,9 +83,11 @@ const Header: React.FC = () => {
                   >
                     Future Link
                   </p>
-                  <span 
-                    className={`font-montserrat text-[0.65rem] uppercase tracking-widest font-medium transition-all duration-500 ${
-                       isScrolled ? "text-white/80" : "text-gray-500 dark:text-slate-400"
+                  <span
+                    className={`typo-brand-subtitle transition-all duration-500 ${
+                      isScrolled
+                        ? "text-white/80"
+                        : "text-gray-500 dark:text-slate-400"
                     }`}
                   >
                     Education
@@ -100,7 +102,7 @@ const Header: React.FC = () => {
                     <Link
                       key={link.path}
                       to={link.path}
-                      className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-500 ease-out ${
+                      className={`typo-nav-link rounded-full px-4 py-2 transition-all duration-500 ease-out ${
                         isLoaded
                           ? "translate-y-0 opacity-100"
                           : "translate-y-4 opacity-0"
@@ -122,7 +124,7 @@ const Header: React.FC = () => {
                   {/*  Button */}
                   <Link
                     to="/enroll"
-                    className={`ml-4 rounded-lg px-6 py-2.5 text-sm font-montserrat font-bold transition-all duration-500 ease-out transform hover:scale-105 active:scale-95 inline-block ${
+                    className={`typo-cta ml-4 inline-block transform rounded-lg px-6 py-2.5 transition-all duration-500 ease-out hover:scale-105 active:scale-95 ${
                       isLoaded
                         ? "translate-y-0 opacity-100"
                         : "translate-y-4 opacity-0"

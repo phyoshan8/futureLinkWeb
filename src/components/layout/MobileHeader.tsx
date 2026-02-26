@@ -1,7 +1,7 @@
 import { Menu, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
-import logo from "../../../public/futureLinkLogo.jpg";
+import { futureLinkLogo as logo } from "@/images";
 import { ModeToggle } from "../mode-toggle";
 
 interface NavLink {
@@ -99,7 +99,7 @@ const MobileHeader: React.FC = () => {
               />
               <div className="flex flex-col items-end ml-3">
                 <p
-                  className={`font-playfair font-bold whitespace-nowrap transition-all duration-500 leading-none ${
+                  className={`typo-brand-title whitespace-nowrap transition-all duration-500 ${
                     isScrolled
                       ? "text-xl text-white"
                       : "text-2xl text-indigo-700 dark:text-indigo-400"
@@ -108,7 +108,7 @@ const MobileHeader: React.FC = () => {
                   Future Link
                 </p>
                 <span 
-                  className={`font-montserrat text-[0.65rem] uppercase tracking-widest font-medium transition-all duration-500 ${
+                  className={`typo-brand-subtitle transition-all duration-500 ${
                       isScrolled ? "text-white/80" : "text-gray-500 dark:text-slate-400"
                   }`}
                 >
@@ -168,7 +168,7 @@ const MobileHeader: React.FC = () => {
                     <div className="relative inline-block">
                       <Link
                         to={link.path}
-                        className={`relative z-10 block text-2xl sm:text-3xl font-medium tracking-wide transition-colors duration-300 ${
+                        className={`typo-mobile-nav-link relative z-10 block transition-colors duration-300 ${
                           isActive
                             ? isScrolled ? "text-white" : "text-indigo-600 dark:text-indigo-400"
                             : isScrolled ? "text-white/70" : "text-gray-600 dark:text-slate-400"
@@ -192,7 +192,7 @@ const MobileHeader: React.FC = () => {
               <Link
                 to="/enroll"
                 onClick={() => setIsOpen(false)}
-                className={`mt-10 rounded-lg px-8 py-3 text-base font-montserrat font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 w-full max-w-[200px] flex items-center justify-center ${
+                className={`typo-cta-lg mt-10 flex w-full max-w-[200px] items-center justify-center rounded-lg px-8 py-3 transition-all duration-300 transform hover:scale-105 active:scale-95 ${
                   isScrolled
                     ? "bg-white text-indigo-900 shadow-none hover:bg-gray-50"
                     : "bg-indigo-900 text-white shadow-md shadow-indigo-900/20 hover:bg-indigo-800"
