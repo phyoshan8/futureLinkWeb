@@ -1,4 +1,5 @@
 import CourseCarousel from "@/components/courses/CourseCarousel";
+import UpcomingEventsSection from "@/components/UpcomingEventsSection";
 import { courses } from "@/data/courses";
 import { activityEng, activityIT, fullStack, leftBanner } from "@/images";
 import { useEffect, useState } from "react";
@@ -85,6 +86,8 @@ const Home = () => {
           <CourseCarousel courses={courses} className="min-w-0" />
         </div>
       </section>
+
+      <UpcomingEventsSection />
     </>
   );
 };
