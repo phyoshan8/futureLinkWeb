@@ -1,0 +1,320 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "Canela Deck Web";
+  src:
+    local("Canela Deck Web"),
+    local("Canela-Deck-Web"),
+    url("/fonts/Canela-Deck-Web.woff2") format("woff2");
+  font-display: swap;
+}
+
+@utility font-canela {
+  font-family: var(--type-font-brand);
+}
+
+@utility font-playfair {
+  font-family: var(--type-font-display);
+}
+
+@utility font-montserrat {
+  font-family: var(--type-font-body);
+}
+
+@layer base {
+  :root {
+    --type-font-brand: "Canela Deck Web", serif;
+    --type-font-display: "Playfair Display", serif;
+    --type-font-body: "Montserrat", sans-serif;
+
+    --type-fs-micro: 0.65rem;
+    --type-fs-xs: 0.75rem;
+    --type-fs-sm: 0.875rem;
+    --type-fs-base: 1rem;
+    --type-fs-lg: 1.125rem;
+    --type-fs-xl: 1.25rem;
+    --type-fs-2xl: 1.5rem;
+    --type-fs-3xl: 1.875rem;
+    --type-fs-4xl: 2.25rem;
+    --type-fs-6xl: 3.75rem;
+
+    --type-color-strong: #0f172a;
+    --type-color-body: #475569;
+    --type-color-muted: #64748b;
+    --type-color-accent: #6366f1;
+    --type-color-accent-soft: #c7d2fe;
+    --type-color-inverse: #ffffff;
+    --type-color-inverse-muted: rgba(255, 255, 255, 0.8);
+    --type-color-footer-muted: #9ca3af;
+  }
+
+  .dark {
+    --type-color-strong: #ffffff;
+    --type-color-body: #cbd5e1;
+    --type-color-muted: #94a3b8;
+    --type-color-accent: #a5b4fc;
+    --type-color-accent-soft: #c7d2fe;
+    --type-color-footer-muted: #94a3b8;
+  }
+}
+
+@utility typo-eyebrow {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--type-color-accent);
+}
+
+@utility typo-eyebrow-soft {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--type-color-accent-soft);
+}
+
+@utility typo-eyebrow-tight {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--type-color-accent);
+}
+
+@utility typo-hero-title {
+  font-family: var(--type-font-display);
+  font-size: var(--type-fs-4xl);
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--type-color-inverse);
+}
+
+@utility typo-hero-body {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-lg);
+  line-height: 1.65;
+  color: #e0e7ff;
+}
+
+@utility typo-section-title {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-2xl);
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--type-color-strong);
+}
+
+@utility typo-page-title {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-3xl);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--type-color-strong);
+}
+
+@utility typo-section-body {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-base);
+  line-height: 1.65;
+  color: var(--type-color-body);
+}
+
+@utility typo-section-body-sm {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-sm);
+  line-height: 1.6;
+  color: var(--type-color-body);
+}
+
+@utility typo-card-title {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-lg);
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--type-color-strong);
+}
+
+@utility typo-card-category {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--type-color-accent);
+}
+
+@utility typo-card-tagline {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-xs);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--type-color-muted);
+}
+
+@utility typo-card-description {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-sm);
+  line-height: 1.625;
+  color: var(--type-color-body);
+}
+
+@utility typo-brand-title {
+  font-family: var(--type-font-display);
+  line-height: 1;
+  font-weight: 700;
+}
+
+@utility typo-brand-subtitle {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@utility typo-nav-link {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-sm);
+  font-weight: 600;
+}
+
+@utility typo-mobile-nav-link {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-2xl);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+@utility typo-cta {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-sm);
+  font-weight: 700;
+}
+
+@utility typo-cta-lg {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-base);
+  font-weight: 700;
+}
+
+@utility typo-link-accent {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-sm);
+  font-weight: 500;
+  color: var(--type-color-accent);
+}
+
+@utility typo-footer-note {
+  font-family: var(--type-font-body);
+  color: var(--type-color-footer-muted);
+}
+
+@utility typo-form-title {
+  font-family: var(--type-font-display);
+  font-size: var(--type-fs-xl);
+  font-weight: 700;
+  color: var(--type-color-strong);
+}
+
+@utility typo-form-subtitle {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-xs);
+  color: var(--type-color-muted);
+}
+
+@utility typo-form-label {
+  font-family: var(--type-font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--type-color-muted);
+}
+
+@utility typo-form-input {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-xs);
+  color: var(--type-color-strong);
+}
+
+@utility typo-form-error {
+  font-family: var(--type-font-body);
+  font-size: 10px;
+  color: #ef4444;
+}
+
+@utility typo-success-title {
+  font-family: var(--type-font-body);
+  font-size: var(--type-fs-lg);
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .typo-section-title {
+    font-size: var(--type-fs-3xl);
+  }
+
+  .typo-page-title {
+    font-size: var(--type-fs-4xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .typo-hero-title {
+    font-size: var(--type-fs-6xl);
+  }
+
+  .typo-hero-body {
+    font-size: var(--type-fs-xl);
+  }
+
+  .typo-mobile-nav-link {
+    font-size: var(--type-fs-3xl);
+  }
+}
+
+@keyframes fade-in-word {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-word {
+  opacity: 0;
+  animation: fade-in-word 0.5s ease-out forwards;
+}
+
+@keyframes gentle-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: gentle-float 5s ease-in-out infinite;
+}
+
+@layer base {
+  body {
+    @apply bg-white transition-colors duration-300 dark:bg-slate-950;
+    font-family: var(--type-font-body);
+    color: var(--type-color-strong);
+  }
+}
