@@ -1,4 +1,42 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
+const contactSchema = z.object({
+  fullName: z.string().trim().min(1, "Full name is required"),
+  email: z
+    .string()
+    .trim()
+    .min(1, "Email is required")
+    .email("Please enter a valid email address"),
+  message: z.string().trim().min(10, "Message must be at least 10 characters"),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
 const Contact = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      fullName: "",
+      email: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = (_data: ContactFormData) => {
+    setIsSubmitted(true);
+    reset();
+  };
+
   return (
     <main className="min-h-screen bg-white py-14 dark:bg-slate-950">
       <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -13,18 +51,29 @@ const Contact = () => {
             </p>
           </div>
 
-          <form className="mt-8 space-y-5">
+          <form
+            className="mt-8 space-y-5"
+            onSubmit={handleSubmit(onSubmit)}
+            noValidate
+          >
             <div className="space-y-2">
               <label htmlFor="full-name" className="typo-form-label">
                 Full name
               </label>
               <input
+                {...register("fullName")}
                 id="full-name"
-                name="fullName"
                 type="text"
-                className="typo-form-input h-12 w-full rounded-xl border border-slate-200 bg-white px-4 transition outline-none placeholder:text-slate-400 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 dark:border-slate-700 dark:bg-slate-900 dark:focus:border-indigo-400 dark:focus:ring-indigo-900"
+                className={`typo-form-input h-12 w-full rounded-xl border bg-white px-4 transition outline-none placeholder:text-slate-400 focus:ring-2 dark:bg-slate-900 ${
+                  errors.fullName
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-200 dark:border-red-500 dark:focus:ring-red-900"
+                    : "border-slate-200 focus:border-indigo-600 focus:ring-indigo-200 dark:border-slate-700 dark:focus:border-indigo-400 dark:focus:ring-indigo-900"
+                }`}
                 placeholder="Your full name"
               />
+              {errors.fullName && (
+                <p className="typo-form-error">{errors.fullName.message}</p>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -32,12 +81,19 @@ const Contact = () => {
                 Email
               </label>
               <input
+                {...register("email")}
                 id="email"
-                name="email"
                 type="email"
-                className="typo-form-input h-12 w-full rounded-xl border border-slate-200 bg-white px-4 transition outline-none placeholder:text-slate-400 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 dark:border-slate-700 dark:bg-slate-900 dark:focus:border-indigo-400 dark:focus:ring-indigo-900"
+                className={`typo-form-input h-12 w-full rounded-xl border bg-white px-4 transition outline-none placeholder:text-slate-400 focus:ring-2 dark:bg-slate-900 ${
+                  errors.email
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-200 dark:border-red-500 dark:focus:ring-red-900"
+                    : "border-slate-200 focus:border-indigo-600 focus:ring-indigo-200 dark:border-slate-700 dark:focus:border-indigo-400 dark:focus:ring-indigo-900"
+                }`}
                 placeholder="name@email.com"
               />
+              {errors.email && (
+                <p className="typo-form-error">{errors.email.message}</p>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -45,12 +101,19 @@ const Contact = () => {
                 Message
               </label>
               <textarea
+                {...register("message")}
                 id="message"
-                name="message"
                 rows={5}
-                className="typo-form-input w-full rounded-xl border border-slate-200 bg-white px-4 py-3 transition outline-none placeholder:text-slate-400 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 dark:border-slate-700 dark:bg-slate-900 dark:focus:border-indigo-400 dark:focus:ring-indigo-900"
+                className={`typo-form-input w-full rounded-xl border bg-white px-4 py-3 transition outline-none placeholder:text-slate-400 focus:ring-2 dark:bg-slate-900 ${
+                  errors.message
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-200 dark:border-red-500 dark:focus:ring-red-900"
+                    : "border-slate-200 focus:border-indigo-600 focus:ring-indigo-200 dark:border-slate-700 dark:focus:border-indigo-400 dark:focus:ring-indigo-900"
+                }`}
                 placeholder="Tell us what you need help with..."
               />
+              {errors.message && (
+                <p className="typo-form-error">{errors.message.message}</p>
+              )}
             </div>
 
             <button
@@ -59,6 +122,15 @@ const Contact = () => {
             >
               Send Message
             </button>
+
+            {isSubmitted && (
+              <p
+                className="typo-success-title text-center text-sm text-emerald-600 dark:text-emerald-400"
+                aria-live="polite"
+              >
+                Message sent successfully.
+              </p>
+            )}
           </form>
         </div>
 
