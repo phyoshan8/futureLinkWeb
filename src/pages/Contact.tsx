@@ -169,7 +169,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="h-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div className="h-full overflow-hidden border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
             <iframe
               title="FutureLink Yangon Street View"
               src="https://www.google.com/maps?q=Myin+Taw+Thar+Rd+and+Thumana+Rd+Yangon&output=embed"

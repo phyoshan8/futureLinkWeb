@@ -57,7 +57,7 @@ const Home = () => {
           <h2 className="typo-section-title">Featured Courses</h2>
           <Link
             to="/courses"
-            className="typo-link-accent mb-6 cursor-pointer hover:underline md:text-lg"
+            className="typo-link-accent mb-6 cursor-pointer text-sm hover:underline md:text-lg"
           >
             View All
           </Link>

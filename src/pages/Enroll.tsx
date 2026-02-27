@@ -66,67 +66,68 @@ const Enroll = () => {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-64px)] items-center justify-center bg-gray-50 px-4 dark:bg-slate-950">
-      <div className="max-h-full w-full max-w-md overflow-y-auto rounded-xl border border-gray-100 bg-white p-6 shadow-xl dark:border-slate-800 dark:bg-slate-900">
-        <Link
-          to="/"
-          className="mb-4 inline-flex items-center text-xs font-medium text-indigo-600 transition-colors hover:text-indigo-500"
-        >
-          <ArrowLeft className="mr-1 h-3 w-3" />
-          Back to Home
-        </Link>
-
-        <div className="mb-4 text-center">
-          <h2 className="typo-form-title mb-0.5">
-            Enroll Now
-          </h2>
-          <p className="typo-form-subtitle">
-            Join Future Link and start your journey.
-          </p>
-        </div>
-
-        {submitStatus === "success" ? (
-          <div className="py-8 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 animate-bounce items-center justify-center rounded-full bg-green-100 text-green-600">
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-            </div>
-            <h3 className="typo-success-title mb-2 text-green-600">Success!</h3>
-            <p className="typo-section-body-sm">
-              Your enrollment has been received.
-            </p>
-            <p className="typo-form-subtitle mt-2">
-              We will contact you shortly.
-            </p>
-            <Link
-              to="/"
-              className="typo-cta mt-6 inline-block rounded-lg bg-indigo-600 px-6 py-2 text-white transition-colors hover:bg-indigo-700"
-            >
-              Return Home
-            </Link>
-          </div>
-        ) : (
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="space-y-3"
-            noValidate
+    <main className="min-h-screen bg-white py-14 dark:bg-slate-950">
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-indigo-50/60 px-6 py-8 shadow-sm sm:px-8 sm:py-10 dark:border-slate-800 dark:bg-slate-900/70">
+          <Link
+            to="/"
+            className="typo-link-accent mb-5 inline-flex items-center gap-1 text-sm"
           >
+            <ArrowLeft className="size-4" />
+            Back to Home
+          </Link>
+
+          <div className="text-center">
+            <h1 className="typo-page-title font-montserrat">Enroll Now</h1>
+            <p className="typo-section-body mt-4">
+              Join Future Link and start your journey.
+            </p>
+          </div>
+
+          {submitStatus === "success" ? (
+            <div className="py-10 text-center">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-300">
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+              <h3 className="typo-success-title text-emerald-600 dark:text-emerald-400">
+                Success!
+              </h3>
+              <p className="typo-section-body mt-2">
+                Your enrollment has been received.
+              </p>
+              <p className="typo-form-subtitle mt-2">
+                We will contact you shortly.
+              </p>
+              <Link
+                to="/"
+                className="typo-cta mt-6 inline-block rounded-xl bg-indigo-500 px-6 py-3 text-white transition hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-400"
+              >
+                Return Home
+              </Link>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="mt-8 space-y-5"
+              noValidate
+            >
             {/* Name */}
-            <div>
+            <div className="space-y-2">
               <label
                 htmlFor="name"
-                className="typo-form-label mb-1 block"
+                className="typo-form-label"
               >
                 Full Name <span className="text-red-500">*</span>
               </label>
@@ -134,21 +135,25 @@ const Enroll = () => {
                 {...register("name")}
                 type="text"
                 id="name"
-                className={`typo-form-input w-full rounded-md border px-3 py-2 ${errors.name ? "border-red-500 dark:bg-red-900/10" : "border-gray-300 bg-gray-50 dark:border-slate-700 dark:bg-slate-800"} transition-all outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500`}
+                className={`typo-form-input h-12 w-full rounded-xl border bg-white px-4 transition outline-none placeholder:text-slate-400 focus:ring-2 dark:bg-slate-900 ${
+                  errors.name
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-200 dark:border-red-500 dark:focus:ring-red-900"
+                    : "border-slate-200 focus:border-indigo-600 focus:ring-indigo-200 dark:border-slate-700 dark:focus:border-indigo-400 dark:focus:ring-indigo-900"
+                }`}
                 placeholder="Mg Mg"
               />
               {errors.name && (
-                <p className="typo-form-error mt-0.5">
+                <p className="typo-form-error">
                   {errors.name.message}
                 </p>
               )}
             </div>
 
             {/* Email */}
-            <div>
+            <div className="space-y-2">
               <label
                 htmlFor="email"
-                className="typo-form-label mb-1 block"
+                className="typo-form-label"
               >
                 Email Address{" "}
                 {errors.email && <span className="text-red-500">*</span>}
@@ -157,21 +162,25 @@ const Enroll = () => {
                 {...register("email")}
                 type="email"
                 id="email"
-                className={`typo-form-input w-full rounded-md border px-3 py-2 ${errors.email ? "border-red-500 dark:bg-red-900/10" : "border-gray-300 bg-gray-50 dark:border-slate-700 dark:bg-slate-800"} transition-all outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500`}
+                className={`typo-form-input h-12 w-full rounded-xl border bg-white px-4 transition outline-none placeholder:text-slate-400 focus:ring-2 dark:bg-slate-900 ${
+                  errors.email
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-200 dark:border-red-500 dark:focus:ring-red-900"
+                    : "border-slate-200 focus:border-indigo-600 focus:ring-indigo-200 dark:border-slate-700 dark:focus:border-indigo-400 dark:focus:ring-indigo-900"
+                }`}
                 placeholder="john@example.com"
               />
               {errors.email?.message !== "Required" && errors.email && (
-                <p className="typo-form-error mt-0.5">
+                <p className="typo-form-error">
                   {errors.email.message}
                 </p>
               )}
             </div>
 
             {/* Phone */}
-            <div>
+            <div className="space-y-2">
               <label
                 htmlFor="phone"
-                className="typo-form-label mb-1 block"
+                className="typo-form-label"
               >
                 Phone Number (Myanmar)
               </label>
@@ -179,27 +188,31 @@ const Enroll = () => {
                 {...register("phone")}
                 type="tel"
                 id="phone"
-                className={`typo-form-input w-full rounded-md border px-3 py-2 ${errors.phone ? "border-red-500 dark:bg-red-900/10" : "border-gray-300 bg-gray-50 dark:border-slate-700 dark:bg-slate-800"} transition-all outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500`}
+                className={`typo-form-input h-12 w-full rounded-xl border bg-white px-4 transition outline-none placeholder:text-slate-400 focus:ring-2 dark:bg-slate-900 ${
+                  errors.phone
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-200 dark:border-red-500 dark:focus:ring-red-900"
+                    : "border-slate-200 focus:border-indigo-600 focus:ring-indigo-200 dark:border-slate-700 dark:focus:border-indigo-400 dark:focus:ring-indigo-900"
+                }`}
                 placeholder="09xxxxxxxxx"
               />
               {errors.phone && (
-                <p className="typo-form-error mt-0.5">
+                <p className="typo-form-error">
                   {errors.phone.message}
                 </p>
               )}
               {errors.email?.message === "Either Email or Phone is required" &&
                 !errors.phone && (
-                  <p className="typo-form-error mt-0.5">
+                  <p className="typo-form-error">
                     Either Email or Phone is required
                   </p>
                 )}
             </div>
 
             {/* Course Selection */}
-            <div>
+            <div className="space-y-2">
               <label
                 htmlFor="course"
-                className="typo-form-label mb-1 block"
+                className="typo-form-label"
               >
                 Select Course <span className="text-red-500">*</span>
               </label>
@@ -207,7 +220,11 @@ const Enroll = () => {
                 <select
                   {...register("course")}
                   id="course"
-                  className={`typo-form-input w-full appearance-none rounded-md border px-3 py-2 ${errors.course ? "border-red-500 dark:bg-red-900/10" : "border-gray-300 bg-gray-50 dark:border-slate-700 dark:bg-slate-800"} transition-all outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500`}
+                  className={`typo-form-input h-12 w-full appearance-none rounded-xl border bg-white px-4 pr-10 transition outline-none focus:ring-2 dark:bg-slate-900 ${
+                    errors.course
+                      ? "border-red-500 focus:border-red-500 focus:ring-red-200 dark:border-red-500 dark:focus:ring-red-900"
+                      : "border-slate-200 focus:border-indigo-600 focus:ring-indigo-200 dark:border-slate-700 dark:focus:border-indigo-400 dark:focus:ring-indigo-900"
+                  }`}
                 >
                   <option value="" disabled>
                     Select a course...
@@ -218,7 +235,7 @@ const Enroll = () => {
                     </option>
                   ))}
                 </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
                   <svg className="h-3 w-3 fill-current" viewBox="0 0 20 20">
                     <path
                       d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -229,25 +246,25 @@ const Enroll = () => {
                 </div>
               </div>
               {errors.course && (
-                <p className="typo-form-error mt-0.5">
+                <p className="typo-form-error">
                   {errors.course.message}
                 </p>
               )}
             </div>
 
             {/* Message (Optional) */}
-            <div>
+            <div className="space-y-2">
               <label
                 htmlFor="message"
-                className="typo-form-label mb-1 block"
+                className="typo-form-label"
               >
                 Additional Message (Optional)
               </label>
               <textarea
                 {...register("message")}
                 id="message"
-                rows={2}
-                className="typo-form-input w-full resize-none rounded-md border border-gray-300 bg-gray-50 px-3 py-2 transition-all outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-800"
+                rows={5}
+                className="typo-form-input w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-3 transition outline-none placeholder:text-slate-400 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 dark:border-slate-700 dark:bg-slate-900 dark:focus:border-indigo-400 dark:focus:ring-indigo-900"
                 placeholder="Any specific questions?"
               />
             </div>
@@ -256,7 +273,7 @@ const Enroll = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`typo-cta mt-2 flex w-full transform items-center justify-center rounded-lg bg-indigo-900 px-4 py-3 text-white shadow-lg shadow-indigo-500/30 transition-all duration-300 hover:scale-[1.02] hover:bg-indigo-800 active:scale-[0.98] ${isSubmitting ? "cursor-not-allowed opacity-70" : ""}`}
+              className={`typo-cta mt-2 flex h-12 w-full items-center justify-center rounded-xl bg-indigo-500 px-6 py-3 text-white transition hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-300 focus:outline-none dark:bg-indigo-500 dark:hover:bg-indigo-400 ${isSubmitting ? "cursor-not-allowed opacity-70" : ""}`}
             >
               {isSubmitting ? (
                 <>
@@ -287,9 +304,10 @@ const Enroll = () => {
               )}
             </button>
           </form>
-        )}
-      </div>
-    </div>
+          )}
+        </div>
+      </section>
+    </main>
   );
 };
 

@@ -205,7 +205,7 @@
 
 @utility typo-link-accent {
   font-family: var(--type-font-body);
-  font-size: var(--type-fs-base);
+  font-size: var(--type-fs-sm);
   font-weight: 500;
   color: var(--type-color-accent);
 }
