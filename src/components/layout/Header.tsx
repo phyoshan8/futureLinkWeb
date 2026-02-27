@@ -1,6 +1,6 @@
+import { futureLinkLogo as logo } from "@/images";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { futureLinkLogo as logo } from "@/images";
 import { ModeToggle } from "../mode-toggle";
 import MobileHeader from "./MobileHeader";
 
@@ -95,10 +95,10 @@ const Header: React.FC = () => {
                 </div>
               </Link>
 
-              {/* Navigation Links - single elements that transform */}
+              {/* Navigation Links -*/}
               <div className="block">
                 <div className="ml-10 flex items-center space-x-2">
-                  {navLinks.map((link, index) => (
+                  {navLinks.map((link) => (
                     <Link
                       key={link.path}
                       to={link.path}
@@ -111,11 +111,6 @@ const Header: React.FC = () => {
                           ? "text-white/90 hover:bg-white/20 hover:text-white"
                           : "text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-indigo-900/50 dark:hover:text-indigo-300"
                       }`}
-                      style={{
-                        transitionDelay: isLoaded
-                          ? `${150 + index * 100}ms`
-                          : "0ms",
-                      }}
                     >
                       {link.title}
                     </Link>

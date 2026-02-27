@@ -1,4 +1,5 @@
 import CourseCarousel from "@/components/courses/CourseCarousel";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import UpcomingEventsSection from "@/components/UpcomingEventsSection";
 import { courses } from "@/data/courses";
 import { activityEng, activityIT, fullStack, leftBanner } from "@/images";
@@ -87,6 +88,7 @@ const Home = () => {
         </div>
       </section>
 
+      <TestimonialsSection />
       <UpcomingEventsSection />
     </>
   );
