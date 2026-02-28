@@ -48,16 +48,16 @@ const MobileHeader: React.FC = () => {
   }, [location.pathname]);
 
   const navLinks: NavLink[] = [
-    { 
-      title: "Courses", 
+    {
+      title: "Courses",
       path: "/courses",
     },
-    { 
-      title: "About", 
+    {
+      title: "About",
       path: "/about",
     },
-    { 
-      title: "Contact", 
+    {
+      title: "Contact",
       path: "/contact",
     },
   ];
@@ -69,7 +69,7 @@ const MobileHeader: React.FC = () => {
       ></div>
 
       <nav
-        className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ease-in-out font-canela ${
+        className={`font-canela fixed top-0 right-0 left-0 z-50 transition-all duration-500 ease-in-out ${
           isScrolled
             ? "bg-linear-to-r from-blue-400 to-indigo-500 shadow-xl shadow-indigo-500/30"
             : "bg-white/80 shadow-lg backdrop-blur-md dark:bg-slate-950/80 dark:shadow-slate-900/20"
@@ -93,11 +93,11 @@ const MobileHeader: React.FC = () => {
               <img
                 src={logo}
                 alt="FutureLink Logo"
-                className={`transition-all duration-500 rounded-full ${
+                className={`rounded-full transition-all duration-500 ${
                   isScrolled ? "h-10 w-10" : "h-12 w-12"
                 }`}
               />
-              <div className="flex flex-col items-end ml-3">
+              <div className="ml-3 flex flex-col items-end">
                 <p
                   className={`typo-brand-title whitespace-nowrap transition-all duration-500 ${
                     isScrolled
@@ -107,9 +107,11 @@ const MobileHeader: React.FC = () => {
                 >
                   Future Link
                 </p>
-                <span 
+                <span
                   className={`typo-brand-subtitle transition-all duration-500 ${
-                      isScrolled ? "text-white/80" : "text-gray-500 dark:text-slate-400"
+                    isScrolled
+                      ? "text-white/80"
+                      : "text-gray-500 dark:text-slate-400"
                   }`}
                 >
                   Education
@@ -156,12 +158,12 @@ const MobileHeader: React.FC = () => {
           }`}
           style={{ height: "calc(100vh - 100%)" }}
         >
-          <div className="flex h-full w-full flex-col justify-start px-8 pt-12 items-center">
-            <div className="space-y-6 w-full max-w-sm flex flex-col items-center">
+          <div className="flex h-full w-full flex-col items-center justify-start px-8 pt-12">
+            <div className="flex w-full max-w-sm flex-col items-center space-y-6">
               {navLinks.map((link) => {
-                 const isActive = location.pathname === link.path;
-                 return (
-                  <div 
+                const isActive = location.pathname === link.path;
+                return (
+                  <div
                     key={link.path}
                     className="group relative w-fit cursor-pointer"
                   >
@@ -170,29 +172,37 @@ const MobileHeader: React.FC = () => {
                         to={link.path}
                         className={`typo-mobile-nav-link relative z-10 block transition-colors duration-300 ${
                           isActive
-                            ? isScrolled ? "text-white" : "text-indigo-600 dark:text-indigo-400"
-                            : isScrolled ? "text-white/70" : "text-gray-600 dark:text-slate-400"
+                            ? isScrolled
+                              ? "text-white"
+                              : "text-indigo-600 dark:text-indigo-400"
+                            : isScrolled
+                              ? "text-white/70"
+                              : "text-gray-600 dark:text-slate-400"
                         }`}
                         onClick={() => setIsOpen(false)}
                       >
                         {link.title}
                       </Link>
-                      
+
                       {/* Simple Underline for Active/Hover */}
-                      <div className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-out origin-left ${
-                        isActive ? "w-full" : "w-0" 
-                      } ${
-                         isScrolled ? "bg-white" : "bg-indigo-600 dark:bg-indigo-400"
-                      }`} />
+                      <div
+                        className={`absolute bottom-0 left-0 h-0.5 origin-left transition-all duration-300 ease-out ${
+                          isActive ? "w-full" : "w-0"
+                        } ${
+                          isScrolled
+                            ? "bg-white"
+                            : "bg-indigo-600 dark:bg-indigo-400"
+                        }`}
+                      />
                     </div>
                   </div>
-                 );
+                );
               })}
 
               <Link
                 to="/enroll"
                 onClick={() => setIsOpen(false)}
-                className={`typo-cta-lg mt-10 flex w-full max-w-[200px] items-center justify-center rounded-lg px-8 py-3 transition-all duration-300 transform hover:scale-105 active:scale-95 ${
+                className={`typo-cta-lg mt-10 flex w-full max-w-[200px] transform items-center justify-center rounded-lg px-8 py-3 transition-all duration-300 hover:scale-105 active:scale-95 ${
                   isScrolled
                     ? "bg-white text-indigo-900 shadow-none hover:bg-gray-50"
                     : "bg-indigo-900 text-white shadow-md shadow-indigo-900/20 hover:bg-indigo-800"

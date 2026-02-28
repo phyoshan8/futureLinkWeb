@@ -21,7 +21,7 @@ export function ModeToggle({
 
   return (
     <div
-      className={`transition-all duration-500 ease-out ${
+      className={`hidden transition-all duration-500 ease-out min-[340px]:block ${
         isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
       }`}
       style={{ transitionDelay: animationDelay }}
@@ -37,8 +37,8 @@ export function ModeToggle({
                 : "text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-slate-800"
             }`}
           >
-            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <Sun className="h-5 w-5 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+            <Moon className="absolute h-5 w-5 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
             <span className="sr-only">Toggle theme</span>
           </Button>
         </DropdownMenuTrigger>

@@ -10,8 +10,8 @@ interface CoursesSectionProps {
 }
 
 const CoursesSection = ({
-  heading = "Our Featured Courses",
-  subheading = "Choose an immersive path with a mentor-guided curriculum, project studio, and global peer community.",
+  heading,
+  subheading,
   className,
 }: CoursesSectionProps) => {
   const categoryFilters = [
