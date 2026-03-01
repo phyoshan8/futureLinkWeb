@@ -1,7 +1,8 @@
+import { futureLinkLogoText as logoText } from "@/images";
+
 import { Menu, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
-import { futureLinkLogo as logo } from "@/images";
 import { ModeToggle } from "../mode-toggle";
 
 interface NavLink {
@@ -71,7 +72,7 @@ const MobileHeader: React.FC = () => {
       <nav
         className={`font-canela fixed top-0 right-0 left-0 z-50 transition-all duration-500 ease-in-out ${
           isScrolled
-            ? "bg-linear-to-r from-blue-400 to-indigo-500 shadow-xl shadow-indigo-500/30"
+            ? "bg-linear-to-r from-white to-indigo-500 shadow-xl shadow-indigo-500/30"
             : "bg-white/80 shadow-lg backdrop-blur-md dark:bg-slate-950/80 dark:shadow-slate-900/20"
         }`}
       >
@@ -91,32 +92,12 @@ const MobileHeader: React.FC = () => {
               }`}
             >
               <img
-                src={logo}
+                src={logoText}
                 alt="FutureLink Logo"
-                className={`rounded-full transition-all duration-500 ${
-                  isScrolled ? "h-10 w-10" : "h-12 w-12"
+                className={`transition-all duration-500 ${
+                  isScrolled ? "h-14 w-auto" : "h-18 w-auto"
                 }`}
               />
-              <div className="ml-3 flex flex-col items-end">
-                <p
-                  className={`typo-brand-title whitespace-nowrap transition-all duration-500 ${
-                    isScrolled
-                      ? "text-xl text-white"
-                      : "text-2xl text-indigo-700 dark:text-indigo-400"
-                  }`}
-                >
-                  Future Link
-                </p>
-                <span
-                  className={`typo-brand-subtitle transition-all duration-500 ${
-                    isScrolled
-                      ? "text-white/80"
-                      : "text-gray-500 dark:text-slate-400"
-                  }`}
-                >
-                  Education
-                </span>
-              </div>
             </Link>
 
             {/* Mobile Actions */}
