@@ -73,7 +73,7 @@ const MobileHeader: React.FC = () => {
         className={`font-canela fixed top-0 right-0 left-0 z-50 transition-all duration-500 ease-in-out ${
           isScrolled
             ? "bg-linear-to-r from-white to-indigo-500 shadow-xl shadow-indigo-500/30"
-            : "bg-white/80 shadow-lg backdrop-blur-md dark:bg-slate-950/80 dark:shadow-slate-900/20"
+            : "bg-white/80 shadow-lg backdrop-blur-md dark:bg-linear-to-r dark:from-slate-100 dark:to-slate-900 dark:shadow-slate-900/20"
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
