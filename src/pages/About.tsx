@@ -14,11 +14,9 @@ const About = () => {
 
       <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl">
-          <p className="typo-eyebrow">
-            In Action
-          </p>
+          <p className="typo-eyebrow">In Action</p>
           <h2 className="typo-section-title mt-2">
-              Moments from our learning studio
+            Moments from our learning studio
           </h2>
           <p className="typo-section-body-sm mt-3 sm:text-base">
             From language labs to build sprints, these snapshots capture how
@@ -47,7 +45,7 @@ const About = () => {
               key={item.title}
               className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr]"
             >
-              <div className="aspect-4/3 w-full overflow-hidden rounded-3xl bg-slate-100 shadow-md dark:bg-slate-800">
+              <div className="aspect-square w-full overflow-hidden rounded-3xl bg-slate-100 shadow-md dark:bg-slate-800">
                 <img
                   src={item.src}
                   alt={item.title}
@@ -55,12 +53,8 @@ const About = () => {
                 />
               </div>
               <div>
-                <p className="typo-eyebrow">
-                  Cohort spotlight
-                </p>
-                <h3 className="typo-section-title mt-2">
-                  {item.title}
-                </h3>
+                <p className="typo-eyebrow">Cohort spotlight</p>
+                <h3 className="typo-section-title mt-2">{item.title}</h3>
                 <p className="typo-section-body animate-float mt-3">
                   {item.caption}
                 </p>

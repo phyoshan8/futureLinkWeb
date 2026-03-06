@@ -1,66 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
-
-@font-face {
-  font-family: "Canela Deck Web";
-  src:
-    local("Canela Deck Web"),
-    local("Canela-Deck-Web"),
-    url("/fonts/Canela-Deck-Web.woff2") format("woff2");
-  font-display: swap;
-}
+/* Enable class-based dark mode using .dark wrapper */
 
 @utility font-canela {
+  /* Utility for brand serif */
   font-family: var(--type-font-brand);
 }
 
 @utility font-playfair {
+  /* Utility for display serif */
   font-family: var(--type-font-display);
 }
 
 @utility font-montserrat {
+  /* Utility for default body sans */
   font-family: var(--type-font-body);
 }
 
 @layer base {
   :root {
-    --type-font-brand: "Canela Deck Web", serif;
-    --type-font-display: "Playfair Display", serif;
-    --type-font-body: "Montserrat", sans-serif;
+    --type-font-brand: "Cormorant Garamond", serif; /* Brand headings/logo */
+    --type-font-display: "Playfair Display", serif; /* Display titles/hero */
+    --type-font-body: "Montserrat", sans-serif; /* Body copy/default text */
 
-    --type-fs-micro: 0.65rem;
-    --type-fs-xs: 0.75rem;
-    --type-fs-sm: 0.875rem;
-    --type-fs-base: 1rem;
-    --type-fs-lg: 1.125rem;
-    --type-fs-xl: 1.25rem;
-    --type-fs-2xl: 1.5rem;
-    --type-fs-3xl: 1.875rem;
-    --type-fs-4xl: 2.25rem;
-    --type-fs-6xl: 3.75rem;
+    --type-fs-micro: 0.65rem; /* 10.4px */
+    --type-fs-xs: 0.75rem; /* 12px */
+    --type-fs-sm: 0.875rem; /* 14px */
+    --type-fs-base: 1rem; /* 16px */
+    --type-fs-lg: 1.125rem; /* 18px */
+    --type-fs-xl: 1.25rem; /* 20px */
+    --type-fs-2xl: 1.5rem; /* 24px */
+    --type-fs-3xl: 1.875rem; /* 30px */
+    --type-fs-4xl: 2.25rem; /* 36px */
+    --type-fs-6xl: 3.75rem; /* 60px */
 
-    --type-color-strong: #0f172a;
-    --type-color-body: #475569;
-    --type-color-muted: #64748b;
-    --type-color-accent: #6366f1;
-    --type-color-accent-soft: #c7d2fe;
-    --type-color-inverse: #ffffff;
-    --type-color-inverse-muted: rgba(255, 255, 255, 0.8);
-    --type-color-footer-muted: #9ca3af;
+    --type-color-strong: #0f172a; /* High-contrast heading color */
+    --type-color-body: #475569; /* Standard paragraph color */
+    --type-color-muted: #64748b; /* Supporting/meta text color */
+    --type-color-accent: #6366f1; /* Primary accent (links/labels) */
+    --type-color-accent-soft: #c7d2fe; /* Soft accent on dark surfaces */
+    --type-color-inverse: #ffffff; /* Text on dark/hero backgrounds */
+    --type-color-inverse-muted: rgba(
+      255,
+      255,
+      255,
+      0.8
+    ); /* Subtle inverse text */
+    --type-color-footer-muted: #9ca3af; /* Footer secondary text */
   }
 
   .dark {
-    --type-color-strong: #ffffff;
-    --type-color-body: #cbd5e1;
-    --type-color-muted: #94a3b8;
-    --type-color-accent: #a5b4fc;
-    --type-color-accent-soft: #c7d2fe;
-    --type-color-footer-muted: #94a3b8;
+    --type-color-strong: #ffffff; /* Main text in dark mode */
+    --type-color-body: #cbd5e1; /* Body text in dark mode */
+    --type-color-muted: #94a3b8; /* Muted text in dark mode */
+    --type-color-accent: #a5b4fc; /* Accent in dark mode */
+    --type-color-accent-soft: #c7d2fe; /* Soft accent in dark mode */
+    --type-color-footer-muted: #94a3b8; /* Footer muted in dark mode */
   }
 }
 
 @utility typo-eyebrow {
+  /* Small uppercase section label */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-xs);
   font-weight: 600;
@@ -70,6 +72,7 @@
 }
 
 @utility typo-eyebrow-soft {
+  /* Soft-color eyebrow for dark heroes */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-xs);
   font-weight: 600;
@@ -79,6 +82,7 @@
 }
 
 @utility typo-eyebrow-tight {
+  /* Compact eyebrow label */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-xs);
   font-weight: 600;
@@ -88,6 +92,7 @@
 }
 
 @utility typo-hero-title {
+  /* Hero headline: large, bold, inverse */
   font-family: var(--type-font-display);
   font-size: var(--type-fs-4xl);
   line-height: 1.25;
@@ -96,6 +101,7 @@
 }
 
 @utility typo-hero-body {
+  /* Hero paragraph text */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-lg);
   line-height: 1.65;
@@ -103,6 +109,7 @@
 }
 
 @utility typo-section-title {
+  /* Section heading */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-2xl);
   line-height: 1.25;
@@ -111,6 +118,7 @@
 }
 
 @utility typo-page-title {
+  /* Page-level heading */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-3xl);
   line-height: 1.2;
@@ -119,6 +127,7 @@
 }
 
 @utility typo-section-body {
+  /* Standard body paragraph */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-base);
   line-height: 1.65;
@@ -126,6 +135,7 @@
 }
 
 @utility typo-section-body-sm {
+  /* Smaller body copy */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-sm);
   line-height: 1.6;
@@ -133,6 +143,7 @@
 }
 
 @utility typo-card-title {
+  /* Card heading/title */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-lg);
   line-height: 1.4;
@@ -141,6 +152,7 @@
 }
 
 @utility typo-card-category {
+  /* Micro uppercase category label */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-micro);
   font-weight: 600;
@@ -150,6 +162,7 @@
 }
 
 @utility typo-card-tagline {
+  /* Secondary uppercase tagline */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-xs);
   letter-spacing: 0.5em;
@@ -158,6 +171,7 @@
 }
 
 @utility typo-card-description {
+  /* Card description paragraph */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-sm);
   line-height: 1.625;
@@ -165,12 +179,14 @@
 }
 
 @utility typo-brand-title {
+  /* Brand/logo title */
   font-family: var(--type-font-display);
   line-height: 1;
   font-weight: 700;
 }
 
 @utility typo-brand-subtitle {
+  /* Brand supporting line */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-micro);
   font-weight: 500;
@@ -179,12 +195,14 @@
 }
 
 @utility typo-nav-link {
+  /* Desktop nav link text */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-sm);
   font-weight: 600;
 }
 
 @utility typo-mobile-nav-link {
+  /* Mobile nav item text */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-2xl);
   font-weight: 500;
@@ -192,18 +210,21 @@
 }
 
 @utility typo-cta {
+  /* Call-to-action label */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-sm);
   font-weight: 700;
 }
 
 @utility typo-cta-lg {
+  /* Larger CTA label */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-base);
   font-weight: 700;
 }
 
 @utility typo-link-accent {
+  /* Accent colored link text */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-sm);
   font-weight: 500;
@@ -211,11 +232,13 @@
 }
 
 @utility typo-footer-note {
+  /* Footer helper/note text */
   font-family: var(--type-font-body);
   color: var(--type-color-footer-muted);
 }
 
 @utility typo-form-title {
+  /* Form heading */
   font-family: var(--type-font-display);
   font-size: var(--type-fs-xl);
   font-weight: 700;
@@ -223,12 +246,14 @@
 }
 
 @utility typo-form-subtitle {
+  /* Form helper/subtitle text */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-xs);
   color: var(--type-color-muted);
 }
 
 @utility typo-form-label {
+  /* Form field label (tiny uppercase) */
   font-family: var(--type-font-body);
   font-size: 10px;
   font-weight: 700;
@@ -238,48 +263,52 @@
 }
 
 @utility typo-form-input {
+  /* Form input value text */
   font-family: var(--type-font-body);
   font-size: var(--type-fs-xs);
   color: var(--type-color-strong);
 }
 
 @utility typo-form-error {
+  /* Validation error text */
   font-family: var(--type-font-body);
   font-size: 10px;
   color: #ef4444;
 }
 
 @utility typo-success-title {
+  /* Success message heading */
   font-family: var(--type-font-body);
-  font-size: var(--type-fs-lg);
+  font-size: var(--type-fs-sm);
   font-weight: 700;
 }
 
 @media (min-width: 640px) {
   .typo-section-title {
-    font-size: var(--type-fs-3xl);
+    font-size: var(--type-fs-3xl); /* 24px -> 30px on sm+ */
   }
 
   .typo-page-title {
-    font-size: var(--type-fs-4xl);
+    font-size: var(--type-fs-4xl); /* 30px -> 36px on sm+ */
   }
 }
 
 @media (min-width: 768px) {
   .typo-hero-title {
-    font-size: var(--type-fs-6xl);
+    font-size: var(--type-fs-6xl); /* 36px -> 60px on md+ */
   }
 
   .typo-hero-body {
-    font-size: var(--type-fs-xl);
+    font-size: var(--type-fs-xl); /* 18px -> 20px on md+ */
   }
 
   .typo-mobile-nav-link {
-    font-size: var(--type-fs-3xl);
+    font-size: var(--type-fs-3xl); /* 24px -> 30px on md+ */
   }
 }
 
 @keyframes fade-in-word {
+  /* Horizontal reveal animation */
   from {
     opacity: 0;
     transform: translateX(-10px);
@@ -291,11 +320,13 @@
 }
 
 .animate-word {
+  /* Utility: staged word reveal */
   opacity: 0;
   animation: fade-in-word 0.5s ease-out forwards;
 }
 
 @keyframes gentle-float {
+  /* Subtle vertical bobbing */
   0% {
     transform: translateY(0);
   }
@@ -308,13 +339,14 @@
 }
 
 .animate-float {
+  /* Utility: continuous gentle floating */
   animation: gentle-float 5s ease-in-out infinite;
 }
 
 @layer base {
   body {
-    @apply bg-white transition-colors duration-300 dark:bg-slate-950;
-    font-family: var(--type-font-body);
-    color: var(--type-color-strong);
+    @apply bg-white transition-colors duration-300 dark:bg-slate-950; /* Global page background + theme transition */
+    font-family: var(--type-font-body); /* Default font across app */
+    color: var(--type-color-strong); /* Default foreground text color */
   }
 }
