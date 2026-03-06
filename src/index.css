@@ -1,16 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *)); /* Enable class-based dark mode using .dark wrapper */
-
-@font-face {
-  font-family: "Canela Deck Web"; /* Custom serif brand font */
-  src:
-    local("Canela Deck Web"),
-    /* Prefer installed local font */ local("Canela-Deck-Web"),
-    /* Alternate local family name */ url("/fonts/Canela-Deck-Web.woff2")
-      format("woff2"); /* Fallback web font file */
-  font-display: swap; /* Use fallback text first, swap when font is loaded */
-}
+@custom-variant dark (&:where(.dark, .dark *));
+/* Enable class-based dark mode using .dark wrapper */
 
 @utility font-canela {
   /* Utility for brand serif */
@@ -29,7 +21,7 @@
 
 @layer base {
   :root {
-    --type-font-brand: "Canela Deck Web", serif; /* Brand headings/logo */
+    --type-font-brand: "Cormorant Garamond", serif; /* Brand headings/logo */
     --type-font-display: "Playfair Display", serif; /* Display titles/hero */
     --type-font-body: "Montserrat", sans-serif; /* Body copy/default text */
 
