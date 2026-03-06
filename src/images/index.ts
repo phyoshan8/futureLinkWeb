@@ -12,6 +12,7 @@ import frontendLabEvent from "./Frontend Lab.jpg";
 import fullStack from "./fullStack.jpg";
 import fullStackDev from "./fullStackDev.jpg";
 import futureLinkLogo from "./futureLinkLogo.jpg";
+import futureLinkLogoText from "./futureLinkLogo.svg";
 import leftBanner from "./leftBanner.png";
 import maleTesti from "./maleTesti.png";
 import mandrin from "./mandrin.jpg";
@@ -35,6 +36,7 @@ export {
   fullStack,
   fullStackDev,
   futureLinkLogo,
+  futureLinkLogoText,
   leftBanner,
   maleTesti,
   mandrin,

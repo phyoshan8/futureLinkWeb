@@ -1,21 +1,25 @@
-# React + TypeScript + Vite
+# FutureLink Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FutureLink Website is a React + TypeScript + Vite application for a learning studio landing site. It includes course highlights, testimonials, upcoming events, and route-based pages for about, courses, contact, and enrollment.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS 4
+- React Router
 
-## React Compiler
+## Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js 20+
+- npm 10+
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Setup
 
-```js
+````js
 export default defineConfig([
   globalIgnores(["dist"]),
   {
@@ -41,33 +45,42 @@ export default defineConfig([
     },
   },
 ]);
+
+1. Clone the repository.
+2. Install dependencies:
+
+```bash
+npm install
+
+
+## Run Locally
+
+
+Start development server:
+
+```bash
+npm run dev
+````
+
+Open the app at `http://localhost:5173`.
+
+## Available Scripts
+
+- `npm run dev` - Run Vite dev server
+- `npm run build` - Type-check and build for production
+- `npm run preview` - Preview the production build locally
+- `npm run lint` - Run ESLint
+
+## Build
+
+Create a production build:
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Preview build output:
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm run preview
 ```
